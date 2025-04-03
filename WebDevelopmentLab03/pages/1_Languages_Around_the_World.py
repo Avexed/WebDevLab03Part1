@@ -49,7 +49,7 @@ def langOut():
         print(info)
         countryInfo = info.json()
     except:
-        st.error("Something went wrong, please try again.")
+        #st.error("Something went wrong, please try again.")
     
     langList = []
     try:
@@ -87,7 +87,7 @@ def selectContinent():
     )
 
     if targetCont:
-        st.session_state['targetCont'] = targetCont
+        #st.session_state['targetCont'] = targetCont
 selectContinent()
 
 def contGraph():
