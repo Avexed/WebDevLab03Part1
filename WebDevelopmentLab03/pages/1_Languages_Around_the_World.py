@@ -45,7 +45,7 @@ selectCountry()
 def langOut():
     country = st.session_state['target']
     try:
-        info = rq.get(f'https://restcountries.com/v3.1/name/{country}', timeout=30)
+        info = rq.get(f'https://restcountries.com/v3.1/name/{country}', timeout=10)
         print(info)
         countryInfo = info.json()
     except:
@@ -94,7 +94,7 @@ def contGraph():
     targetCont = st.session_state['targetCont']
     st.session_state['targetCont'] = ''
     try:
-        info = rq.get(f'https://restcountries.com/v3.1/region/{targetCont}', timeout=30)
+        info = rq.get(f'https://restcountries.com/v3.1/region/{targetCont}', timeout=10)
         contInfo = info.json()
         if contInfo:
             st.session_state['contInfo'] = contInfo
@@ -118,10 +118,3 @@ if st.session_state['targetCont'] != []:
     contGraph()
     st.session_state['targetCont'] = []
             
-
-
-
-
-
-    
-
