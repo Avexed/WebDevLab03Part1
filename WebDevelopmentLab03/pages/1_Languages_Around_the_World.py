@@ -44,8 +44,13 @@ selectCountry()
 
 def langOut():
     country = st.session_state['target']
-    info = rq.get(f'https://restcountries.com/v3.1/name/{country}', verify=False)
-    countryInfo = info.json()
+    try:
+        info = rq.get(f'https://restcountries.com/v3.1/name/{country}')
+        print(info)
+        countryInfo = info.json()
+    except:
+        st.error("Something went wrong, please try again.")
+    
     langList = []
     try:
         name = countryInfo[0]["name"]['common']
@@ -87,10 +92,14 @@ selectContinent()
 
 def contGraph():
     targetCont = st.session_state['targetCont']
-    info = rq.get(f'https://restcountries.com/v3.1/region/{targetCont}', verify=False)
-    contInfo = info.json()
-    if contInfo:
-        st.session_state['contInfo'] = contInfo
+    st.session_state['targetCont'] = ''
+    try:
+        info = rq.get(f'https://restcountries.com/v3.1/region/{targetCont}')
+        contInfo = info.json()
+        if contInfo:
+            st.session_state['contInfo'] = contInfo
+    except:
+        st.error('Something went wrong, please try again.')
 
     contLangs = []
     langDict = {}
