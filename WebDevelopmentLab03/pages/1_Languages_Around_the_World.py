@@ -71,8 +71,7 @@ def langOut():
             st.write(f'- {term}')
 
     except:
-        pass
-        #st.error("Country not found, please try again.")
+        st.error("Country not found, please try again.")
 if st.session_state['target'] != []:
     langOut()
     st.session_state['target'] = []
@@ -100,8 +99,7 @@ def contGraph():
         if contInfo:
             st.session_state['contInfo'] = contInfo
     except:
-        pass
-        #st.error('Something went wrong, please try again.')
+        st.error('Something went wrong, please try again.')
 
     contLangs = []
     langDict = {}
