@@ -49,7 +49,7 @@ def langOut():
         print(info)
         countryInfo = info.json()
     except:
-        #st.error("Something went wrong, please try again.")
+        st.error("Something went wrong, please try again.")
     
     langList = []
     try:
@@ -71,6 +71,7 @@ def langOut():
             st.write(f'- {term}')
 
     except:
+        pass
         #st.error("Country not found, please try again.")
 if st.session_state['target'] != []:
     langOut()
@@ -99,7 +100,8 @@ def contGraph():
         if contInfo:
             st.session_state['contInfo'] = contInfo
     except:
-        st.error('Something went wrong, please try again.')
+        pass
+        #st.error('Something went wrong, please try again.')
 
     contLangs = []
     langDict = {}
